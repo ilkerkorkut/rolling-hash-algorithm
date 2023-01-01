@@ -95,12 +95,12 @@ func (dp *DeltaProcessor) AppendFilteredCandidate(md5Hash [16]byte) bool {
 
 		dp.delta.Copied = append(dp.delta.Copied, d)
 		return true
-	} else {
-		return false
 	}
+
+	return false
 }
 
-func (dp *DeltaProcessor) GetRemainingBytes() {
+func (dp *DeltaProcessor) SetRemainingBytes() {
 	if len(dp.visited) != 0 {
 		dp.delta.Inserted = append(dp.delta.Inserted, &SingleDelta{
 			Start:     dp.pos - len(dp.visited),
@@ -115,7 +115,7 @@ func (dp *DeltaProcessor) Roll(checksums map[uint32][16]byte) error {
 	dp.pos += n
 	if err != nil {
 		if err == io.EOF {
-			dp.GetRemainingBytes()
+			dp.SetRemainingBytes()
 		}
 		return err
 	}
@@ -135,7 +135,7 @@ func (dp *DeltaProcessor) Roll(checksums map[uint32][16]byte) error {
 
 		if err != nil {
 			if err == io.EOF {
-				dp.GetRemainingBytes()
+				dp.SetRemainingBytes()
 				return err
 			}
 			logging.GetLogger().Fatalf("Error while rolling the window: %s", err)
