@@ -9,7 +9,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=ilkerkorkut_rolling-hash-algorithm&metric=coverage)](https://sonarcloud.io/summary/new_code?id=ilkerkorkut_rolling-hash-algorithm)
 [![Release](https://img.shields.io/github/release/ilkerkorkut/rolling-hash-algorithm.svg)](https://github.com/ilkerkorkut/rolling-hash-algorithm/releases/latest)
 [![Go version](https://img.shields.io/github/go-mod/go-version/ilkerkorkut/rolling-hash-algorithm)](https://github.com/ilkerkorkut/rolling-hash-algorithm)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Build Locally
 ```shell
