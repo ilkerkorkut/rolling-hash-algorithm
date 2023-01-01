@@ -1,0 +1,6 @@
+FROM gcr.io/distroless/static:nonroot-amd64
+
+ADD rolling-hash-algorithm /usr/local/bin/rolling-hash-algorithm
+
+USER nonroot
+ENTRYPOINT ["rolling-hash-algorithm"]

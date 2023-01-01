@@ -1,0 +1,18 @@
+version: 2
+registries:
+  github-octocat:
+    type: git
+    url: https://github.com
+    username: x-access-token
+    password: ${{secrets.GH_TOKEN}}
+updates:
+- package-ecosystem: gomod
+  registries:
+    - github-octocat
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "11:50"
+    timezone: "Europe/Istanbul"
+  target-branch: "development"
+  open-pull-requests-limit: 5
