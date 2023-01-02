@@ -32,7 +32,10 @@ rha delta -s signature.txt -d delta.txt -n new.txt --chunk-size 2
 
 ## References
 [https://en.wikipedia.org/wiki/Adler-32](https://en.wikipedia.org/wiki/Adler-32)
+
 [https://en.wikipedia.org/wiki/Rolling_hash](https://en.wikipedia.org/wiki/Rolling_hash)
+
+[https://en.wikipedia.org/wiki/Rsync](https://en.wikipedia.org/wiki/Rsync)
 
 ## Development
 This project requires below tools while developing:

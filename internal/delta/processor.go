@@ -78,7 +78,7 @@ func (dp *DeltaProcessor) BuildDelta() *Delta {
 	return dp.delta
 }
 
-func (dp *DeltaProcessor) AppendFilteredCandidate(md5Hash [16]byte) bool {
+func (dp *DeltaProcessor) AppendDiff(md5Hash [16]byte) bool {
 	newMD5Hash := hashalgos.MD5Checksum(dp.window)
 
 	if md5Hash == newMD5Hash {
@@ -122,7 +122,7 @@ func (dp *DeltaProcessor) Roll(checksums map[uint32][16]byte) error {
 
 	dp.x, dp.y, dp.sum = hashalgos.Adler32Checksums(dp.window)
 	if md5Hash, ok := checksums[dp.sum]; ok {
-		if ok := dp.AppendFilteredCandidate(md5Hash); ok {
+		if ok := dp.AppendDiff(md5Hash); ok {
 			return nil
 		}
 	}
@@ -151,7 +151,7 @@ func (dp *DeltaProcessor) Roll(checksums map[uint32][16]byte) error {
 				dp.visited = nil
 			}
 
-			dp.AppendFilteredCandidate(md5Hash)
+			dp.AppendDiff(md5Hash)
 			return nil
 		}
 		dp.visited = append(dp.visited, dp.window[len(dp.window)-1])
